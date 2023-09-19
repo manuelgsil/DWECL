@@ -1,0 +1,36 @@
+div{
+    height: 800px;
+    background-color: black;
+}
+header {
+    border: 1px black;
+    background-color: red;
+    height: 30%;
+}
+
+nav {
+
+    background-color: yellow;
+    height: 15%;
+}
+
+
+nav ul li {
+    
+    list-style: none;
+    
+    background-color: blue;
+    display: inline-block;
+
+}
+
+main {
+    background-color: yellowgreen;
+    height: 30%;
+}
+
+footer {
+
+    background-color: purple;
+    height: 30%;
+}
