@@ -1,33 +1,25 @@
-
-header {
-    border: 1px black;
-    background-color: red;
-   
+body {
+    font-family: monospace;
+    background-color: #000;
+    color: #00FF00;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vh;
 }
 
-nav {
-
-    background-color: yellow;
-    
+.console {
+    background-color: #000;
+    color: #00FF00;
+    border: 1px solid #00FF00;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
 }
 
-
-nav ul li {
-    
-    list-style: none;
-    
-    background-color: blue;
-    display: inline-block;
-
-}
-
-main {
-    background-color: yellowgreen;
- 
-}
-
-footer {
-
-    background-color: purple;
-   
+.input {
+    color: #00FF00;
 }
