@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <h1>a</h1>
+    <h2></h2>
+    <pre style="font-size: 20px;">
+Cuando se cargue una página se debe mostrar una ventana donde
+se pregunte tu nombre. Después se debe mostrar "Bienvenido,
+TuNombre" en el encabezado de la página, y al cabo de los 3
+segundos, en un encabezado de nivel 2, que escriba la dirección
+URL de la página.
+
+(Valida la entrada para que no se pueda escribir la cadena vacía o que no devuelva null)
+    </pre>
+
+</body>
+
+<script>
+    const NOMBRE = pedirNombre();
+
+    escribirEncabezadoH1(NOMBRE);
+    setTimeout(escribirEncabezadoH2,3000); // si envias una funcion como parametro a SetTimeOut tiene que ser sin parentesis, si no, se ejecuta inmediatamente
+
+    function pedirNombre() {
+        let nombre;
+        do {
+            nombre = prompt("Introduce tu nombre");
+        } while (nombre === null || nombre.trim() === '');
+        return nombre;
+    }
+    function escribirEncabezadoH1(nombre) {
+
+        document.getElementsByTagName("h1")[0].innerHTML = `Bienvenido, ${nombre}`;
+
+        /*         document.querySelector("h1").innerHTML = `Bienvenido, ${nombre}`;*/
+
+    };
+    function escribirEncabezadoH2() {
+        document.getElementsByTagName('h2')[0].innerHTML = window.location.href;
+    }
+
+
+</script>
+
+</html>

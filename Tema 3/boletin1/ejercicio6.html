@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Al terminar de cargarse la página debe aparecer un prompt pidiendo
+        que escribas una palabra. Hay que comprobar que el usuario no
+        haya pulsado el botón cancelar y después, que lo que devuelve el
+        prompt no sea la cadena vacía. Si todo está correcto, se cambiará el
+        título de la página por lo que se haya escrito en el prompt.</p>
+</body>
+<script>
+    function cambiarTitulo() {
+        let tituloCambiado;
+        do {
+            tituloCambiado = prompt("Escribe un titulo para esta página")
+        } while (tituloCambiado === null || tituloCambiado.trim() === '')
+        document.title = tituloCambiado;
+    }
+
+    //   document.addEventListener("DOMContentLoaded", cambiarTitulo); // teoricamente debería funcionar pero me pasa lo mismo que en el
+
+    window.addEventListener("load", cambiarTitulo); // con window si funciona
+</script>
+
+</html>

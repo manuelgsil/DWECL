@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+    }
+    p {
+    
+        display: block;
+        position: absolute;
+        border: 1px black solid;
+    }
+</style>
+
+<body>
+    <p> En una página web,
+        debe haber un párrafo que ocupe la mitad de la
+        pantalla de ancho y esté centrado. Usa cualquier texto para su
+        contenido. Cuando se termine de cargar la página, se le pedirá al
+        usuario mediante un prompt que escriba un color. Después se
+        deberá cambiar el color de fondo del párrafo con el color que el
+        usuario ha escrito. Tienes que controlar que lo que el usuario
+        escriba en un prompt no sea la cadena vacía y que no le dé al botón
+        cancelar.
+    </p>
+</body>
+
+<script>
+
+function cambiarColor() {
+    let color;
+    do {
+        color = prompt("Escribe un color");
+    } while (color === null || color.trim() === "")
+        document.querySelector("p").style.backgroundColor = color;
+    
+}
+
+window.addEventListener("load", cambiarColor);
+
+</script>
+
+</html>

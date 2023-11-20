@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+function establecerSaludo(){
+    setTimeout(() => {
+        document.getElementsByTagName("h1")[0].innerHTML = "¡Hola! han pasado 3 segundos desde que se terminó de cargar la página";
+    }, 3000);
+}
+
+function borrarSaludo(){
+    setTimeout(() => {
+        document.getElementsByTagName("h1")[0].innerHTML = "";
+    }, 6000);
+}
+
+document.addEventListener("DOMContentLoaded", establecerSaludo());
+document.addEventListener("DOMContentLoaded", borrarSaludo());
+
+</script>
+
+<body>
+    <p>
+        Una página debe mostrar un mensaje de bienvenida a los 3
+        segundos de terminar de cargarse. A los 3 segundos siguientes
+        desaparecerá. Utiliza para mostrar el mensaje una etiqueta que ya
+        esté en la página.
+    </p>
+
+    <h1>
+
+    </h1>
+</body>
+
+</html>

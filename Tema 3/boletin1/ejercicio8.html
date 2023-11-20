@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre style="font-size: 20px;">  En un formulario bien formado en HTML debe haber un campo de
+entrada numérico y un botón. Cuando se pulse sobre el botón habrá
+que comprobar que haya escrito un número mayor o igual que 0 y
+menor o igual que 9. Si es un número entre 0 y 9 se debe esperar
+3 segundos y después construir dentro de una etiqueta
+&lt;table&gt; &lt;/table&gt;
+la tabla de multiplicar de ese número, cada
+resultado en una fila y cada número y cada signo * y = en una
+celda, en cada fila. Para crear cada fila en una cadena, utilizar
+plantillas literales. Para el evento del botón se puede utilizar onclick
+Si no es un número entre 0 y 9 te debe mostrar un mensaje de
+error en un span que habrá junto al campo de entrada numérico.
+Recuerda que cuando sea un número entre 0 y 9 debes borrar el
+mensaje de error para que no se quede escrito siempre.</pre>
+
+    <form action="#">
+        <label for="numero">Inserta un numero:</label>
+        <input type="number" id="numero" name="numero">
+        <span></span>
+        <input type="submit" value="Enviar" onclick="tablaMultiplicar()">
+    </form>
+    <table id="tabla">
+
+    </table>
+
+</body>
+<script>
+    function tablaMultiplicar() {
+        event.preventDefault();
+        let numero = document.getElementById("numero");
+        if (isNaN(numero.value) || numero.value < 0 || numero.value > 9)
+            manejarError();
+        else {
+            setTimeout(() => {
+                generarTabla(numero.value);
+            }, 3000);
+        }
+    };
+
+    function manejarError() {
+        let etiquetaSpan = document.getElementsByTagName("span")[0];
+        etiquetaSpan.innerHTML = "Tiene que introducir un NUMERO entre el 0 y 9"
+        setTimeout(() => {
+            etiquetaSpan.innerHTML = "";
+        }, 3000);
+
+    }
+
+    function generarTabla(numero) {
+        let tabla = `<caption> Tabla del ${numero}</caption>`;
+
+        for (let index = 1; index <= 10; index++) {
+            tabla += `<tr><td> ${index} </td> 
+                    <td> * </td>
+                    <td> ${numero} </td>
+                    <td> = </td>
+                    <td> ${index * numero} </td>
+                    </tr>`;
+        }
+        document.getElementById("tabla").innerHTML = tabla;
+    }
+</script>
+
+</html>

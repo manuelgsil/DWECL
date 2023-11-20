@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <pre>Realiza un ejercicio en el que en un formulario se pueda escribir un
+    nombre y una edad. Si el usuario es mayor de edad, al pulsar un
+    botón debe escribirse en la página:
+    “El usuario nombre es mayor de edad”
+    (Valida la entrada)</pre>
+
+    <form onsubmit="event.preventDefault(); validarFormulario()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function validarFormulario() {
+            let nombre = document.getElementById("nombre").value;
+            let edad = parseInt(document.getElementById("edad").value);
+
+            if (nombre.trim() === "") {
+                alert("Por favor, ingresa un nombre válido");
+            } else if (isNaN(edad) || edad < 0) {
+                alert("No deje el campo vacío e ingrese un número");
+            } else {
+                crearBoton(edad, nombre);
+            }
+        }
+
+        function crearBoton(edad, nombre) {
+            let mensaje;
+            if (edad >= 18) {
+                mensaje = `El usuario ${nombre} es mayor de edad`;
+            } else {
+                mensaje = `El usuario ${nombre} no es mayor de edad`;
+            }
+
+            let boton = document.createElement("button");
+            boton.textContent = mensaje;
+
+            document.body.appendChild(boton);
+        }
+    </script>
+</body>
+
+</html>

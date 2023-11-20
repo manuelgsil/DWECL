@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        En una página web debe haber un formulario con un campo de
+        entrada de tipo texto con una etiqueta “Escribe una palabra: “. Al
+        pulsar sobre un botón, en una etiqueta de encabezado de nivel 1
+        que debe estar ya en la página, se deberá mostrar la palabra
+        escrita.
+    </p>
+
+    <h1></h1>
+    <form action="#">
+        <label for="palabra">Escribe una palabra:</label>
+        <input type="text" id="palabra" name="palabra">
+        <input type="submit" value="Enviar" onclick="recogerPalabra()">
+    </form>
+</body>
+<script>
+    function recogerPalabra() {
+        event.preventDefault();
+        let palabra = document.getElementById("palabra").value;
+        let encabezado = document.getElementsByTagName("h1")[0];
+        encabezado.innerHTML=palabra;
+    }
+</script>
+
+</html>
