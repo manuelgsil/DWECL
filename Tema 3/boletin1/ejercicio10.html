@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p id="texto">Otra página deberá tener 3 botones cada uno con el nombre de un
+        color, de manera que al ir pulsándolos, vaya cambiando el color de
+        fondo de la pantalla y del texto de un párrafo igual que el del
+        ejercicio anterior. El color de fondo del párrafo se deberá mantener
+        blanco.</p>
+
+    <button onclick="cambiarColor('red')">Rojo</button>
+    <button onclick="cambiarColor('green')">Verde</button>
+    <button onclick="cambiarColor('blue')">Azul</button>
+
+    <script>
+        function cambiarColor(color) {
+            let texto = document.getElementById("texto");
+            document.body.style.backgroundColor = color;
+            texto.style.color = color;
+            texto.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+
+</html>

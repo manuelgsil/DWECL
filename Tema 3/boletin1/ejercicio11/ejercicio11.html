@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img id="imagen">
+  </img>
+
+  <button onclick="cambiarImagen('imagen1.webp')">Imagen 2</button>
+  <button onclick="cambiarImagen('imagen2.webp')">Imagen 3</button>
+  <button onclick="cambiarImagen('imagen3.webp')">Imagen 4</button>
+
+  <script>
+    function cambiarImagen(src) {
+      var imagen = document.getElementById("imagen");
+      imagen.src = src;
+      imagen.style.width = "300px";
+      imagen.style.height = "200px";
+    }
+  </script>
+</body>
+
+</html>
