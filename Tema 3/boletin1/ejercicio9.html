@@ -39,7 +39,7 @@ function cambiarColor() {
     let color;
     do {
         color = prompt("Escribe un color");
-    } while (color === null || color.trim() === "")
+    } while (color === null || color === "")
         document.querySelector("p").style.backgroundColor = color;
     
 }

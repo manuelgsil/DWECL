@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body >
     <p>Al terminar de cargarse la página debe aparecer un prompt pidiendo
         que escribas una palabra. Hay que comprobar que el usuario no
         haya pulsado el botón cancelar y después, que lo que devuelve el
@@ -19,7 +19,7 @@
         let tituloCambiado;
         do {
             tituloCambiado = prompt("Escribe un titulo para esta página")
-        } while (tituloCambiado === null || tituloCambiado.trim() === '')
+        } while (tituloCambiado === null || tituloCambiado === '')
         document.title = tituloCambiado;
     }
 

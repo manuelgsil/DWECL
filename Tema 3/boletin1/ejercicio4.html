@@ -3,61 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <script>
 
     // 1º Manera
     //  Hacemos que cada boton tenga el atributo onclick y se llame a la funcion correspondiente
-    /*     function boton1() {
-            window.location.href = "ejercicio1.html";
-        }
-        function boton2() {
-            window.location.href = "ejercicio2.html";
-        }
-        function boton3() {
-            window.location.href = "ejercicio3.html";
-        } 
-    */
+    /*   function boton1() {
+          window.location.href = "ejercicio1.html";
+      }
+      function boton2() {
+          window.location.href = "ejercicio2.html";
+      }
+      function boton3() {
+          window.location.href = "ejercicio3.html";
+      }  */
+
 
     // 2º Manera
     // Creamos una funcion descriptiva en la que llamamos al objeto document y a la funcion de escucha
     // ahi como parametros, indicamos que el dom esté cargado e introducimos nuestra funcion  
 
-    /*  function paginaCargada() {
-         document.addEventListener("DOMContentLoaded", asociarEventos());
- 
-     } */
+  /*   function paginaCargada() {
+        document.addEventListener("DOMContentLoaded", asociarEventos());
 
-    /*     function asociarEventos() {
-            // Obtener referencias a los botones
-            const boton1 = document.getElementsByTagName('button')[0];
-            const boton2 = document.getElementsByTagName('button')[1];
-            const boton3 = document.getElementsByTagName('button')[2];
-    
-            // Asociar eventos de clic a los botones para redireccionar
-            // Se escriben con funciones anonimas
-            boton1.addEventListener('click', () => {
-                window.location.href = "ejercicio1.html";
-            });
-    
-            boton2.addEventListener('click', () => {
-                window.location.href = 'ejercicio2.html';
-            });
-    
-            boton3.addEventListener('click', () => { //
-                window.location.href = 'ejercicio3.html';
-            });
-        }; */
-    /* 
-        paginaCargada(); */
+    } */
 
+   /*  function asociarEventos() {
+        // Obtener referencias a los botones
+        const boton1 = document.getElementsByTagName('button')[0];
+        const boton2 = document.getElementsByTagName('button')[1];
+        const boton3 = document.getElementsByTagName('button')[2];
+
+        // Asociar eventos de clic a los botones para redireccionar
+        // Se escriben con funciones anonimas
+        boton1.addEventListener('click', () => {
+            window.location.href = "ejercicio1.html";
+        });
+
+        boton2.addEventListener('click', () => {
+            window.location.href = 'ejercicio2.html';
+        });
+
+        boton3.addEventListener('click', () => { //
+            window.location.href = 'ejercicio3.html';
+        });
+    }; */
+
+/*     paginaCargada();
+ */
     //3º Manera n
     // crear una funcion que a la que se introduzca la url
-    function redireccionar(url) {
-        window.location.href = url;
-    }
+    
+     function redireccionar(url) {
+         window.location.href = url;
+     }
 
 </script>
 
@@ -65,16 +67,16 @@
     <p>En otra página crea 3 botones. Cuando se pulse el primero debes
         irte al primer ejercicio, si se pulsa el segundo, al segundo ejercicio y
         lo mismo para el tercero.</p>
- 
-        <!--     <button onclick="boton1()">Ejercicio 1</button>
+
+    <!--  <button onclick="boton1()">Ejercicio 1</button>
     <button onclick="boton2()">Ejercicio 2</button>
     <button onclick="boton3()">Ejercicio 3</button> -->
 
-    <!--     <button>1</button>
+  <!--   <button>1</button>
     <button>2</button>
-    <button>3</button>
- -->
+    <button>3</button> -->
 
+    
     <button onclick="redireccionar('ejercicio1.html')">Ir al primer ejercicio</button>
     <button onclick="redireccionar('ejercicio2.html')">Ir al segundo ejercicio</button>
     <button onclick="redireccionar('ejercicio3.html')">Ir al tercer ejercicio</button>

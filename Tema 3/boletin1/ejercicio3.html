@@ -27,7 +27,7 @@
             let nombre = document.getElementById("nombre").value;
             let edad = parseInt(document.getElementById("edad").value);
 
-            if (nombre.trim() === "") {
+            if (nombre === "") {
                 alert("Por favor, ingresa un nombre válido");
             } else if (isNaN(edad) || edad < 0) {
                 alert("No deje el campo vacío e ingrese un número");
