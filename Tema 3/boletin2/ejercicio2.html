@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+
+<body>
+    <div onclick="mostrarDatos(this)"></div>
+    <div onclick="mostrarDatos(this)"></div>
+    <div onclick="mostrarDatos(this)"></div>
+    <div onclick="mostrarDatos(this)"></div>
+    <div onclick="mostrarDatos(this)"></div>
+    <div onclick="mostrarDatos(this)"></div>
+</body>
+
+<script>
+
+    coloresAleatorios = ["red", "blue", "green", "yellow", "pink", "grey"];
+    tamanioAleatorios = ["250px", "300px", "150px", "400px"];
+
+    divArray = Array.from(document.querySelectorAll("div")); // lo pasamos a array, aunque no se si es necesario
+
+    let colorAleatorio;
+    let tamanioAleatorio;
+    let coloresUtilizados = new Set();
+
+
+    divArray.forEach(element => {
+
+        do {
+            colorAleatorio = coloresAleatorios[Math.floor(Math.random() * coloresAleatorios.length)];
+        } while (coloresUtilizados.has(colorAleatorio));
+        coloresUtilizados.add(colorAleatorio);
+
+        tamanioAleatorio = tamanioAleatorios[Math.floor(Math.random() * tamanioAleatorios.length)];
+        element.style.backgroundColor = colorAleatorio;
+        element.style.width = tamanioAleatorio;
+        element.style.height = tamanioAleatorio;
+    });
+
+    function mostrarDatos(elemento) {
+        let ancho = elemento.style.width;
+        let color = elemento.style.backgroundColor;
+        let altura = elemento.style.height;
+
+        let p = document.createElement("h1");
+        p.textContent = altura + " " + color + " " + ancho;
+        document.body.appendChild(p);
+
+    }
+
+/*  TODO organizarlo por funciones y que se borre la anterior (setTimeOut(?)) */
+</script>
+
+</html>
+
+<!-- Realiza un ejercicio en el que partiendo de un documento html con 6
+div´s con width, height y un color de fondo diferente. Al hacer click
+sobre cada uno de ellos se debe mostrar en el body el color del que
+se ha pulsado. -->

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<style>
+    button {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <input type="text"
+           oninput="comprobacion()">
+
+    <button onclick="calcularFactorial()">calcular</button>
+
+    <h1></h1>
+</body>
+
+</html>
+
+<script>
+    function comprobacion() {
+        let input = document.querySelector("input").value;
+        let regNumerosEnterosPositivos = /^\d+$/;
+        let esValido = regNumerosEnterosPositivos.test(parseInt(input));
+
+        setTimeout(function () {
+            if (esValido) {
+                document.querySelector("button").style.display = "block";
+            }
+            else {
+                alert("introduzca un numero valido")
+                document.querySelector("button").style.display = "none";
+            }
+        }, 1000)
+
+    }
+
+
+    function calcularFactorial() {
+        let input = document.querySelector("input").value;
+
+        let s = 1;
+        while (input > 1) {
+            s *= input;
+            input--;
+        }
+        document.querySelector("h1").innerHTML = s;
+    }
+
+
+</script>
+
+<!-- 
+
+    En el evento input (oninput) del input type text habrá que
+comprobar que hay algo, que es un número positivo y entero, y solo
+entonces se muestra el botón calcular. El cálculo será el factorial del
+número que se le ha introducido. Cuando no es así no debe
+aparecer el botón. El resultado se mostrará en una etiqueta fuera
+del formulario.
+
+-->
