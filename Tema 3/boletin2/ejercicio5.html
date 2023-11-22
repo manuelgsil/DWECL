@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        border: 1px black solid;
+        width: 100vh;
+        height: 100vh;
+        position: absolute;
+        left: 50vh;
+    }
+
+    .contenedor {
+        border: 1px red solid;
+        width: 50%;
+        height: 60%;
+        text-align: center;
+        /* Alinear los elementos hijos al centro horizontalmente */
+        position: absolute;
+        left: 25%;
+    }
+
+    .contenedor div {
+        border: 1px green solid;
+        width: calc(20% - 2px);
+        /* Restar el ancho del borde */
+        height: calc(9% - 2px);
+        box-sizing: border-box;
+        /* Incluir el borde y el padding en el ancho y alto */
+        display: inline-block;
+        /* Mostrar los elementos como bloques en línea */
+        margin: 5px;
+        /* Agregar margen para separar los elementos */
+
+    }
+
+    .contenedor div:hover {
+        background-color: tan;
+    }
+
+    span {
+        border: 1px rebeccapurple solid;
+        width: 100px;
+        height: 50px;
+        display: block;
+        margin: 20% 40%;
+        align-items: center;
+        line-height: 50px;
+    }
+</style>
+
+<body>
+    <div class="contenedor" onclick="detectarClick(event)">
+    </div>
+    <!-- <span></span>  -->
+</body>
+<!-- Utilizando los 2 ejercicios anteriores, haz que el teclado en pantalla
+cada vez tenga los números en diferentes posiciones. Añadir los div
+con los números aleatorios desde el evento load, creándolos con
+JavaScript y añadiéndolos a la página después.
+ -->
+<script>
+    /* Esto no es necesario para este ejercicio */
+    function detectarClick(eventoClick) { 
+        let contenedor = document.querySelector(".contenedor"); //almacenamos el contenedor
+
+        if (contenedor.contains(event.target) && event.target !== contenedor) { // y aqui especificaremos que el objetivo del evento este dentro del contenedor y NO SEA EL MISMO CONTENEDOR PADRE
+            let numeroClicado = event.target.textContent; /* Variable para almacenar el contenido del div clickado */
+            let span = document.querySelector("span"); /* Seleccionamos el span donde se almacenará el resultado */
+            span.textContent = numeroClicado; /* Y le cambiamos el contenido del texto, por el del click */
+        }
+    }
+
+    function generarNumerosAleatorios() {
+        let numeroAleatorio;
+        let numeroUsado = new Set();
+        let contenedor = document.querySelector(".contenedor");
+
+        for (var i = 0; i < 9; i++) {
+
+            do {
+                numeroAleatorio = Math.floor(Math.random() * 10);
+            } while (numeroUsado.has(numeroAleatorio))
+            numeroUsado.add(numeroAleatorio);
+
+            let div = document.createElement("div");
+            div.textContent = numeroAleatorio;
+            contenedor.appendChild(div);
+        }
+    }
+    generarNumerosAleatorios();
+</script>
+
+</html>

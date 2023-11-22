@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio2</title>
 </head>
 
@@ -18,42 +17,60 @@
 </body>
 
 <script>
+    /* No hemos seguido el enunciado al pie de la letra.
+     Para empezar, decidimos modificar las propiedades de los div
+     de manera aleatoria desde JS. Y luego, mostrar esos datos en una etiqueta h1*/
 
-    coloresAleatorios = ["red", "blue", "green", "yellow", "pink", "grey"];
-    tamanioAleatorios = ["250px", "300px", "150px", "400px"];
+    /* 1 creamos un array con los colores aleatorios y los posibles tamaños */
+    let coloresAleatorios = ["red", "blue", "green", "yellow", "pink", "grey"];
+    let tamanioAleatorios = ["250px", "300px", "150px", "400px"];
+    /* mediante query Selector All  seleccionamos los DIVS y los pasamos a un array (aunque no sabemos si era necesario este paso) */
+    divArray = Array.from(document.querySelectorAll("div"));
 
-    divArray = Array.from(document.querySelectorAll("div")); // lo pasamos a array, aunque no se si es necesario
-
+    /* Declaramos las variables para almacenar el color y el tamaño aleatorio */
     let colorAleatorio;
     let tamanioAleatorio;
+    /* Creamos un Set (solo permite claves unicas) para tener una suerte de índice de colores utilizados. Esto nos servirá
+    para no utilizar colores repetidos  */
     let coloresUtilizados = new Set();
 
-
+    /* For each para establecer colores y tamaños aleatorios */
     divArray.forEach(element => {
 
         do {
             colorAleatorio = coloresAleatorios[Math.floor(Math.random() * coloresAleatorios.length)];
         } while (coloresUtilizados.has(colorAleatorio));
-        coloresUtilizados.add(colorAleatorio);
+        coloresUtilizados.add(colorAleatorio); /* se van añadiendo al set los colores utilizados */
 
         tamanioAleatorio = tamanioAleatorios[Math.floor(Math.random() * tamanioAleatorios.length)];
+        /* Declaramos los divs con los atributos aleatorios */
         element.style.backgroundColor = colorAleatorio;
         element.style.width = tamanioAleatorio;
         element.style.height = tamanioAleatorio;
     });
 
+    /**
+ * Muestra información sobre el ancho, alto y color de fondo de un elemento en un encabezado h1.
+ * @param {HTMLElement} elemento - El elemento del cual se mostrarán los datos.
+ * 
+ */
     function mostrarDatos(elemento) {
+        let encabezadoAnterior = document.querySelector("h1");
+
+        if (encabezadoAnterior)
+            encabezadoAnterior.remove();
+
         let ancho = elemento.style.width;
         let color = elemento.style.backgroundColor;
         let altura = elemento.style.height;
 
-        let p = document.createElement("h1");
-        p.textContent = altura + " " + color + " " + ancho;
-        document.body.appendChild(p);
+        let encabezado = document.createElement("h1");
+        encabezado.innerHTML = `El alto es: ${altura} </br> el ancho: ${ancho} </br>   el color: ${color}`;
 
+        document.body.appendChild(encabezado);
     }
 
-/*  TODO organizarlo por funciones y que se borre la anterior (setTimeOut(?)) */
+    /*  TODO organizarlo por funciones y que se borre la anterior (setTimeOut(?)) */
 </script>
 
 </html>

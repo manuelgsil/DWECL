@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+        <li>f</li>
+        <li>g</li>
+    </ul>
+    <ol>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+        <li>666</li>
+        <li>777</li>
+    </ol>
+    <div class="ordenada">
+
+    </div>
+    <button onclick="listaDesordenada()">Lista Desordenada</button>
+    <button onclick="listaOrdenada()">Lista Ordenada</button>
+    <button onclick="todosLi()">Todos los LI</button>
+    <button onclick="elementosUltimosListas()">Últimos Elementos</button>
+</body>
+
+<script>
+    function listaDesordenada() {
+        let listaDesordenada = document.querySelectorAll("ul li");
+        let divOrdenado = document.querySelector(".ordenada");
+        divOrdenado.innerHTML = ""; // limpiamos por su hubiera una llamada anterior
+
+        listaDesordenada.forEach(element => {
+            divOrdenado.innerHTML += `<li>${element.textContent}</li>`;
+            /*  si le pongo innerHTML me permite usar elementos de HTML para copiarlos
+            de manera similar a como esta en la lista original */
+        })
+    }
+
+    function listaOrdenada() {
+        let listaOrdenadaPares = document.querySelectorAll("ol li:nth-child(even)");
+        let listaOrdenadaImpares = document.querySelectorAll("ol li:nth-child(odd)");
+        let divOrdenado = document.querySelector(".ordenada");
+        divOrdenado.innerHTML = ""; // limpiamos por su hubiera una llamada anterior
+
+        listaOrdenadaPares.forEach(element => {
+            divOrdenado.innerHTML += `<li>${element.textContent}</li>`;
+            /*  si le pongo innerHTML me permite usar elementos de HTML para copiarlos
+            de manera similar a como esta en la lista original */
+        });
+
+        listaOrdenadaImpares.forEach(element => {
+            divOrdenado.innerHTML += `<li>${element.textContent}</li>`;
+        });
+
+        /*  listaOrdenadaImpares.forEach(element => {  
+             let elementoLista = element.cloneNode(true);
+             elementoLista.style.color = "red";
+             divOrdenado.appendChild(elementoLista);
+         });
+     } */
+    }
+
+    /*  listaOrdenada(); */
+
+    /* listaDesordenada();*/
+
+    function todosLi() {
+        let divOrdenado = document.querySelector(".ordenada");
+        divOrdenado.innerHTML = ""; // limpiamos por su hubiera una llamada anterior
+        let todosElementosListas = document.querySelectorAll("li");
+
+        todosElementosListas.forEach(element => {
+            divOrdenado.innerHTML += `<li>${element.textContent}</li>`;
+
+        })
+    }
+
+    // todosLi();
+
+    /* 
+        function cuartoElementoOrderedList(){
+            let cuartoElemento = document.querySelector("ol li:nth-child(4)");
+            let divOrdenado = document.querySelector(".ordenada");
+            divOrdenado.innerHTML += `<li>${cuartoElemento.textContent}</li>`;
+        }
+        cuartoElementoOrderedList(); */
+
+    function elementosUltimosListas() {
+        let ultimosElementosDesordenada = document.querySelectorAll("ul li:nth-last-child(-n+2)");
+        let ultimosElementosOrdenada = document.querySelectorAll("ol li:nth-last-child(-n+2)");
+        let divOrdenado = document.querySelector(".ordenada");
+        divOrdenado.innerHTML = ""; // limpiamos por su hubiera una llamada anterior
+
+        ultimosElementosDesordenada.forEach(element => {
+            divOrdenado.innerHTML += `<li>${element.textContent}</li>`;
+        });
+        ultimosElementosOrdenada.forEach(element => {
+            divOrdenado.innerHTML += `<li>${element.textContent}</li>`;
+        });
+    }
+
+    // elementosUltimosListas();
+
+
+</script>
+<!-- 
+    De los elementos que están en la lista ordenada, selecciona todos
+los de la lista y después escribe el contenido que tengan en el div
+que tiene de clase ordenada. Realiza el mismo ejercicio anterior,
+cogiendo de la lista ordenada primeros los pares y después los
+impares.
+
+Realiza de nuevo el ejercicio pero esta vez cogiendo todos
+los elementos li. Selecciona ahora el 4º li de la ol. Selecciona ahora
+los 2 últimos li de cada lista. Si quieres haz que cada apartado se
+haga al pulsar click sobre un botón. Todas las selecciones hazlas con
+querySelector y querySelectorAll.
+ -->
+
+</html>
