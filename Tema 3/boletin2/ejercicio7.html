@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<style>
+    .claseModificable {
+        background-color: blue;
+        letter-spacing: 2px;
+        text-decoration: line-through;
+        position: relative;
+        color: white;
+    }
+
+    .claseModificable::before {
+        content: "X";
+        position: absolute;
+        top: 0;
+        left: 100px;
+        color: red;
+    }
+</style>
+
+<body>
+    <li>prueba</li>
+    <li>prueba</li>
+    <li>prueba</li>
+    <li>prueba</li>
+    <li>prueba</li>
+    <li>prueba</li>
+    <li>prueba</li>
+
+
+</body>
+
+<!-- En una lista de 7 elementos, haz que al pinchar sobre cada
+elemento cambien 4 propiedades de los estilos: color de fondo,
+espaciado entre las letras, tachado y que delante del elemento
+aparezca una x. Hazlo definiendo una 1 clase y cambiando los
+estilos en la clase.
+ -->
+<script>
+
+    function modificarElementos(event) {
+        let lis = document.querySelectorAll("li");
+
+        lis.forEach(element => {
+            element.addEventListener("click", () => {
+                element.classList.add("claseModificable");
+                // element.classList.toggle("claseModificable") 
+                // con toggle podemos hacer que cambie entre la pseudo clase BEFORE y la normal
+            })
+
+        });
+    };
+
+    modificarElementos();
+</script>
+
+</html>

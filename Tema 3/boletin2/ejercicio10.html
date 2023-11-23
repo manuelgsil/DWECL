@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <P>Estoy reventadisimo</P>
+    <P>Me gusta muchisimo la curcuma</P>
+    <P>Me podré tomar una cerveza hoy? yes we can</P>
+    <P>CANTA OH DIOSA LA COLERA DEL PELIDA AQUILES</P>
+
+    <label for="textoBuscado">Introduzca una palabra a buscar </label>
+    <input type="text" name="textoBuscado" id="textoBuscado">
+    <button onclick="busqueda()">BUSCAR</button>
+</body>
+
+</html>
+
+<script>
+    function busqueda() {
+        let parrafos = document.querySelectorAll("p");
+        let stringBuscado = document.getElementById("textoBuscado").value;
+        let tamanioCadena;
+        let estaPresente = false;
+        parrafos.forEach(parrafo => {
+            let textoParrafo = parrafo.textContent;
+            if (textoParrafo.includes(stringBuscado)) {
+                tamanioCadena = stringBuscado.length;
+                parrafo.innerHTML = textoParrafo.replace(stringBuscado, "<strong> NO </strong>") + `</br> <span> Tamaño de la cadena: ${tamanioCadena}</span>`;
+                estaPresente = true;
+            }
+        });
+        if (!estaPresente) {
+            alert("No esta en el texto la palabrita")
+        }
+    }
+
+    /* TODO
+        1. Hacer que cuando se llame a la funcion, se resetee lo anterior si ya ha sido usada
+        2. Colocar de mejor manera el span (es lo primero que me ha salido)
+        3. Darle algo de estilo  
+        */
+</script>
+<!-- Realiza un ejercicio en el que partiendo de un documento html
+con texto en varios elementos del mismo tipo, al pulsar en un botón
+se realice un búsqueda en el contenido de esos elementos de una
+determinada cadena de texto. Si se encuentra, se debe sustituir por
+la palabra “NO” (en negrita mediante etiqueta html). Además se
+debe crear un elemento span y añadirlo al elemento en el que se ha
+encontrado la cadena prohibida. El contenido del elemento span
+será la longitud de la cadena encontrada. -->

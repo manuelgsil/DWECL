@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="file">Descarga:</label>
+    <progress id="file" value="0" max="100"> 0% </progress>
+
+</body>
+
+
+</html>
+<script>
+
+    let barra = document.getElementById("file");
+
+    function cargaBarra(barraProgreso, limite) {
+        if (barraProgreso.value < limite) {
+            barraProgreso.value++;
+        } else {
+            clearInterval(REFERENCIA_INTERVALO); // necesitamos darle como parametro la referencia del intervalo que debe parar
+        }
+    }
+
+    const REFERENCIA_INTERVALO = setInterval(() => cargaBarra(barra, 70), 100); // siempre hay que pasar como funcion, aunque sea otra funcion
+
+
+
+
+  /*   function cargaBarra() {
+        let barra = document.getElementById("file");
+        let limite = 50;
+        if (barra.value < limite) {
+            barra.value++;
+        } else {
+            clearInterval(REFERENCIA_INTERVALO); // necesitamos darle como parametro la referencia del intervalo que debe parar
+        }
+    }
+
+    const REFERENCIA_INTERVALO = setInterval(cargaBarra, 100); */ // asi me funciona sin tener que pasarle como funcion otra funcion
+</script>
