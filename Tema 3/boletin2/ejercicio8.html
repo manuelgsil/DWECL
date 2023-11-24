@@ -1,16 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<html>
 
-<!-- En un formulario, valida que la entrada sean 12 dígitos numéricos.
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Titulo</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+
+  <form action="#">
+    <input type="text" maxlength="12">
+    <!-- Ponerlo en number luego me obliga a pasarlo a string para hacer las operaciones sobre cada numero, asi que lo dejamos en TEXT -->
+  </form>
+  <button onclick="validar()">Validar</button> <!-- Llamamos a la funcion -->
+</body>
+
+<script>
+  const INPUT_VALIDO = /^\d{12}$/; /* Expresion regular que solo permite 12 numeros */
+  function validar() {
+    let input = document.querySelector("input");
+    if (INPUT_VALIDO.test(input.value))
+      calcularISBN(input);
+    else {
+      alert("Introduzca el código de 12 digitos")
+    }
+  }
+
+
+  function calcularISBN(input) {
+    let tabla = document.createElement("table"); /*  Creamos una tabla */
+    tabla.style.border = "1px solid"; /* Le damos algo de estilo */
+    tabla.style.borderCollapse = "collapse";
+    /* Mediante las funciones en JS de table, creamos dos filas */
+    let filaOperacion = tabla.insertRow(); /* Una que represente las operaciones */
+    let filaResultado = tabla.insertRow();/* Y otra para los resultados de esas operaciones */
+    let sumatorio = 0; /* Variable que guarda el resultado de estas ultimas */
+
+    for (let i = 0; i < input.value.length; i++) {
+      let numeroAlterno = i % 2 === 0 ? 1 : 3; /* Es el numero que va ir multiplicando a cada valor. Si es par es 1 y si es impar, 3. */
+      let numero = parseInt(input.value[i]); /* el valor en cada posicion */
+      let operacion = numero * numeroAlterno; /* el resultado del valor por el numero alterno */
+
+      agregarCelda(filaOperacion, numero + " * " + numeroAlterno, "1px solid red"); /* Llamamos a la funcion que agrega celdas y le pasamos los parametros necesarios */
+      agregarCelda(filaResultado, operacion, "1px solid black"); /*  lo mismo para los resultados */
+
+      sumatorio += numero * numeroAlterno;
+    }
+
+    let resto = sumatorio % 10; /* Calculamos el resto */
+    let resultadoVerificador = resto === 0 ? 0 : 10 - resto; /* Ternaria para verificar el resultadoVerificador */
+    /* Agregamos las dos ultimas celdas, las cuales representan las opèraciones para verificar el digito*/
+    agregarCelda(filaOperacion, sumatorio + " % 10 = " + resto + " || 10 - " + resto, "1px solid red");
+    agregarCelda(filaResultado, "D Verificador " + resultadoVerificador, "1px solid black", "black", "white"); /* Y el digito verificador en cuestion */
+
+    document.body.appendChild(tabla);
+  }
+/**
+ * Esta funcion nos permite agregar celadas indicando la fila y las propiedades que queramos para la celda
+ * @param {fila} param - la fila donde queramos anexar la celda
+ * @param {contenido} param - El contenido de la celda
+ * @param {borde} param - El contenido de la celda
+ * @param {bgColor} param - ||opcional|| - color de fondo de la celda
+ * @param {color} param - ||opcional|| - color del contenido
+ */
+  function agregarCelda(fila, contenido, borde, bgColor, color) {
+    let celda = fila.insertCell();
+    celda.textContent = contenido;
+    celda.style.border = borde;
+
+    if (bgColor) celda.style.backgroundColor = bgColor;
+    if (color) celda.style.color = color;
+  }
+
+
+
+
+</script>
+
+</html>
+<!--En un formulario, valida que la entrada sean 12 dígitos numéricos.
 Después, siguiendo las instrucciones de abajo, calcula el dígito
 verificador. Una vez calculado, muestra los números en una tabla,
-cada número en una celda, y en la celda final el número verificador -->
+cada número en una celda, y en la celda final el número verificador  -->
