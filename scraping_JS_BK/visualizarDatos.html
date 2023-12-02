@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    td.precio-verde {
+        background-color: lightgreen;
+        font-weight: bold;
+    }
+</style>
+<body>
+
+    
+</body>
+
+<script>
+    function crearTabla(lotesPorCategoria) {
+    const tabla = document.createElement('table');
+    tabla.border = '1';
+
+    for (const categoria in lotesPorCategoria) {
+        const filaCategoria = document.createElement('tr');
+        const encabezadoCategoria = document.createElement('th');
+        encabezadoCategoria.textContent = categoria.toUpperCase(); // Nombre de la categoría en mayúsculas
+        encabezadoCategoria.colSpan = '3';
+
+        filaCategoria.appendChild(encabezadoCategoria);
+        tabla.appendChild(filaCategoria);
+
+        lotesPorCategoria[categoria].forEach(lote => {
+            const filaLote = document.createElement('tr');
+
+            const celdaNombre = document.createElement('td');
+            celdaNombre.textContent = lote.nombre;
+
+            const celdaEnlace = document.createElement('td');
+            const enlace = document.createElement('a');
+            enlace.href = lote.enlace;
+            enlace.textContent = 'Ver';
+            celdaEnlace.appendChild(enlace);
+
+            const celdaPrecio = document.createElement('td');
+            celdaPrecio.textContent = lote.precio.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            if (lote.precio < 200) {
+                celdaPrecio.classList.add('precio-verde');
+            }
+            filaLote.appendChild(celdaNombre);
+            filaLote.appendChild(celdaEnlace);
+            filaLote.appendChild(celdaPrecio);
+
+            tabla.appendChild(filaLote);
+        });
+    }
+
+    return tabla;
+}
+    fetch('datos.json')
+            .then(response => response.json())
+            .then(data => {
+                const tabla = crearTabla(data); // Usar los datos cargados para crear la tabla
+                document.body.appendChild(tabla); // Agregar la tabla al cuerpo del documento
+            })
+            .catch(error => console.error('Error al cargar el archivo JSON:', error));
+</script>
+</html>
