@@ -1,0 +1,90 @@
+<!-- 
+Es decir cada li deberá ser del estilo:
+<ul>
+…
+<li data-palabra=”palabra_introducida_por_usuario”>número</li>
+…
+</ul>
+
+Al pulsar sobre cada elemento, la palabra guardada en la etiqueta se verá
+en la pantalla y el número que se veía hasta ahora se guardará en
+data-palabra, es decir, cada -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<style>
+    ul {
+        border: 1px black solid;
+
+        &li {
+            background-color: tan;
+        }
+    }
+</style>
+
+<body onload="elementosAleatorios()">
+    <ul></ul>
+</body>
+
+</html>
+<script>
+    function elementosAleatorios() {
+        let listaDesordenada = document.querySelector("ul");
+        let numeroAleatorio = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+        let numeroLoco = 10000000;
+        const elementosLi = [];
+        const fragmento = document.createDocumentFragment();
+
+        /* Metodo 1: hacer las llamadas al dom en el bucle ((SIN USAR VECTOR)) */
+
+        //  for (let index = 0; index < numeroAleatorio; index++) {
+        //      let elementoLi = document.createElement("li");
+        //      let cotenidoAtributo = prompt("Introduzca una palabra");
+        //      elementoLi.setAttribute("data-palabra", cotenidoAtributo) /* Creamos atributo  y le ponemos la palabrita del usuario*/
+        //      elementoLi.textContent = index;     /* usamos el index para añadirle el numero */
+        //      listaDesordenada.insertAdjacentElement("afterend", elementoLi); /* Al usar afterEnd se coloca al final del todo */
+        //  
+        //  }
+
+
+        /* Metodo 2: Usando fragmento */
+
+        console.time('usandoFragmento')
+        for (let index = 0; index < 1000000; index++) {
+            let elementoLi = document.createElement("li");
+            let cotenidoAtributo = "hola" + index;
+            elementoLi.setAttribute("data-palabra", cotenidoAtributo) /* Creamos atributo  y le ponemos la palabrita del usuario*/
+            elementoLi.textContent = index; /* usamos el index para añadirle el numero */
+            fragmento.appendChild(elementoLi); /* Al usar afterEnd se coloca al final del todo */
+        }
+
+        listaDesordenada.appendChild(fragmento);
+        console.timeEnd('usandoFragmento')
+        // usandoFragmento: Explota. No se por qué. Igual estoy haciendo algo mal.
+
+        /* Comparativa */
+
+/*         console.time('añadiendoEnElbucle')
+ */
+//        for (let index = 0; index < 1000000; index++) {
+//            let elementoLi = document.createElement("li");
+//            let cotenidoAtributo = "hola" + index;
+//            elementoLi.setAttribute("data-palabra", cotenidoAtributo)
+//            elementoLi.textContent = index;
+//            listaDesordenada.insertAdjacentElement("afterend", elementoLi);
+//        }
+//        console.timeEnd('añadiendoEnElbucle')
+// // 1000000  1558.64697265625 ms o explota
+    }
+    function cargarLi() {
+        setTimeout(elementosAleatorios, 5000);
+    }
+    
+</script>

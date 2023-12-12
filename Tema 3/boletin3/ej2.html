@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input {
+        display: table;
+    }
+
+    table {
+        border: 1px solid black;
+        position: relative;
+        left: 50%;
+
+    }
+</style>
+
+<body>
+    <h1>Formulario mostroOoOo</h1>
+    <form action="#">
+        <label for="">Nombre completo:</label>
+        <input type="text"
+               id="nombreCompleto">
+        <label for="">email</label>
+        <input type="email"
+               id="email">
+        <label for="">Año</label>
+        <input type="date"
+               id="fecha">
+        <label for="">Sexo</label>
+        <input type="text"
+               id="sexo">
+        <label for="">ISBN</label>
+        <input type="number"
+               id="isbn">
+    </form>
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Año</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Sexo</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ISBN</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<script>
+
+    function esIncorrecto(campo) {
+        // usamos un array para guardar todos los value
+        let inputs = document.getElementsByTagName("input");
+        switch (in_array(inputs != null)) {
+/* - nombre completo (obligatorio, 3 palabras y el inicio de cada palabra en mayúsculas) */
+            case inputs[0]: // Nombre completo
+                
+                break;
+/* - email (obligatorio, de tipo email) https://elcssar.com/html5/input-type-email-regex-pattern */
+            case inputs[1]: // Email
+
+                break;
+/* - año (obligatorio, un año, que será siempre como máximo el año actual ) */                
+            case inputs[2]: // año
+
+                break;
+/* - sexo (obligatorio, H o M (solo se podrá seleccionar uno)) */
+            case inputs[3]: //sexo
+
+                break;
+/* - ISBN (978-1-86197-876-9 | 978 1 86197 876 9) */
+            case inputs[4]: // ISBN
+
+                break;
+
+        }
+    }
+</script>
+<!--
+Validación de formulario con 5 campos. Se validará todo desde
+JavaScript. La validación se realizará desde JavaScript mediante el evento
+“change” asociado a cada campo.
+Los campos a introducir serán:
+En el evento change de cada campo se mostrarán los valores correctos en
+un tabla de 2 columnas que ya exista en el HTML (la tabla siempre está
+en pantalla, hacerla en HTML y desde JavaScript solo es necesario ir
+cambiando el contenido de la segunda columna). La primera columna
+guarda el nombre del campo y en la segunda el valor o el mensaje de
+error.
+
+Si algo es incorrecto, se debe escribir en esa tabla en color rojo desde
+JavaScript un mensaje de error. El mensaje de error se sustituirá por el
+valor correcto en color negro cuando cada campo vaya pasando la
+validación.
+ -->
