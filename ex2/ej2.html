@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos</title>
+    <script src=""></script>
+
+</head>
+
+<p>Pulsa el bot&oacute;n para <input type="button" value="a&ntilde;adir" onclick="mas1();" />
+    o <input type="button" value="eliminar" onclick="elimina();" /> un elemento de la lista</p>
+
+<label for="texto">Texto a añadir</label>
+<input type="text" id="texto">
+
+<ol id="lista">
+    <li>primer dato</li>
+    <li>segundo dato</li>
+    <li>tercer dato</li>
+    <li>cuarto dato</li>
+</ol>
+
+</body>
+
+</html>
+<script>
+    listaOrdenada = document.getElementById("lista");
+
+    function mas1() {
+        let valorInput = document.getElementById("texto").value;
+        let estaVacio = valorInput == "";
+        if (estaVacio) {
+            alert("Inserte algo en el input")
+        } else {
+            let elementoLi = document.createElement("li");
+            let textoLi = document.createTextNode(valorInput);
+            elementoLi.appendChild(textoLi);
+            console.log(elementoLi);
+            listaOrdenada.appendChild(elementoLi);
+        }
+
+    }
+
+    function elimina() {
+        let elementosLi = document.querySelectorAll("li");
+        let valorInput = parseInt(document.getElementById("texto").value);
+        let estaVacio = valorInput == "";
+        let esUnNumero = !isNaN(valorInput);
+        let dentroDeRango = parseInt(valorInput) >= 0 && parseInt(valorInput) <= elementosLi.length;
+
+        if (estaVacio) {
+            listaOrdenada.removeChild(listaOrdenada.lastElementChild);
+        } else if (esUnNumero&& dentroDeRango) {
+            elementosLi[valorInput-1].remove();
+        }
+        else {
+            alert("Fuera de rango")
+        }
+
+    }
+
+</script>
+<!-- 
+    Ejercicio 2. El script creo nodo de texto para el contenido
+    Ejercicio 2. El script elimina el último elemento si cadena vacía.	
+    Ejercicio 2. El script elimina el elemento i-ésimo si número	
+    Ejercicio 2. El script recupera la información del usuario de un elemento HTML, no de un alert/prompt.	
+ -->

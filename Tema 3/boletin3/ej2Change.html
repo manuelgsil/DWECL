@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input {
+        display: table;
+    }
+    table {
+        border: 1px solid black;
+        position: relative;
+        left: 50%;
+    }
+    td,
+    tr {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <h1>Formulario onChange</h1>
+    <form action="#">
+        <label for="">Nombre completo:</label>
+        <input type="text" id="nombreCompleto" onchange="validarCampo(this.value, 0)">
+        <label for="">email</label>
+        <input type="email" id="email" onchange="validarCampo(this.value, 1)">
+        <label for="">Año</label>
+        <input type="date" id="fecha" onchange="validarCampo(this.value, 2)">
+        <label for="">Sexo</label>
+        <input type="text" id="sexo" onchange="validarCampo(this.value, 3)">
+        <label for="">ISBN</label>
+        <input type="text" id="isbn" onchange="validarCampo(this.value, 4)">
+        <button type="submit">Enviar</button>
+    </form>
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td class="nombre"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td class="email"></td>
+        </tr>
+        <tr>
+            <td>Año</td>
+            <td class="año"></td>
+        </tr>
+        <tr>
+            <td>Sexo</td>
+            <td class="sexo"></td>
+        </tr>
+        <tr>
+            <td>ISBN</td>
+            <td class="isbn"></td>
+        </tr>
+    </table>
+    <script>
+        // Expresiones regulares para validar
+        const validarNombre = /[A-Z][a-z]+ +[A-Z][a-z]+ +[A-Z][a-z]+$/;
+        const validarCorreo = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        const validarSexo = /^[hH|Mm]$/;
+        const validarISBN = /^[\d]{3}[ |-][\d]{1}[ |-][\d]{5}[ |-][\d]{3}[ |-][\d]{1}$/;
+        /* Fila de celdas donde va el resultado de los inputs */
+        let celdasResultado = document.querySelectorAll("table tr td:nth-child(2)");
+        function validarCampo(valor, indice) {
+            let esCorrecto = validacionSegunIndice(valor, indice);
+            insertarCampo(valor, esCorrecto, indice);
+        }
+        function insertarCampo(resultado, esCorrecto, indice) {
+            let celda = celdasResultado[indice];
+            if (esCorrecto)
+                celda.innerHTML = resultado;
+            else {
+                celda.innerHTML = "El " + celda.className + " no es correcto";
+                celda.style.color = "red";
+            }
+        }
+        function validacionSegunIndice(valor, indice) {
+            let bandera = false;
+            switch (indice) {
+                case 0:
+                    bandera = validarNombre.test(valor);
+                    break;
+                case 1:
+                    bandera = validarCorreo.test(valor);
+                    break;
+                case 2:
+                    let añoIngresado = new Date(valor).getFullYear();
+                    let añoActual = new Date().getFullYear();
+                    bandera = !(añoIngresado > añoActual);
+                    break;
+                case 3:
+                    bandera = validarSexo.test(valor);
+                    break;
+                case 4:
+                    bandera = validarISBN.test(valor);
+                    break;
+            }
+            return bandera;
+        }
+    </script>
+</body>
+
+</html>

@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
@@ -16,99 +15,108 @@
         border: 1px solid black;
         position: relative;
         left: 50%;
+    }
 
+    td,
+    tr {
+        border: 1px solid black;
     }
 </style>
-
 <body>
     <h1>Formulario mostroOoOo</h1>
     <form action="#">
         <label for="">Nombre completo:</label>
-        <input type="text"
-               id="nombreCompleto">
+        <input type="text" id="nombreCompleto">
         <label for="">email</label>
-        <input type="email"
-               id="email">
+        <input type="email" id="email">
         <label for="">Año</label>
-        <input type="date"
-               id="fecha">
+        <input type="date" id="fecha">
         <label for="">Sexo</label>
-        <input type="text"
-               id="sexo">
+        <input type="text" id="sexo">
         <label for="">ISBN</label>
-        <input type="number"
-               id="isbn">
+        <input type="text" id="isbn">
+        <button type="submit">Enviar</button>
     </form>
     <table>
         <tr>
             <td>Nombre</td>
-            <td></td>
+            <td class="nombre"></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td></td>
+            <td class="email"></td>
         </tr>
         <tr>
             <td>Año</td>
-            <td></td>
+            <td class="año"></td>
         </tr>
         <tr>
             <td>Sexo</td>
-            <td></td>
+            <td class="sexo"></td>
         </tr>
         <tr>
             <td>ISBN</td>
-            <td></td>
+            <td class="isbn"></td>
         </tr>
     </table>
 </body>
-
 </html>
-
 <script>
 
-    function esIncorrecto(campo) {
-        // usamos un array para guardar todos los value
-        let inputs = document.getElementsByTagName("input");
-        switch (in_array(inputs != null)) {
-/* - nombre completo (obligatorio, 3 palabras y el inicio de cada palabra en mayúsculas) */
-            case inputs[0]: // Nombre completo
-                
-                break;
-/* - email (obligatorio, de tipo email) https://elcssar.com/html5/input-type-email-regex-pattern */
-            case inputs[1]: // Email
+    let inputs = document.getElementsByTagName("input"); /* Selecciono el formulario */
+    let celdasResultado = document.querySelectorAll("table tr td:nth-child(2)"); /* selecciono la coleccion de celdas donde van los resultados */
+    inputs = Array.from(inputs); // lo convierto en un array
+    let formulario = document.querySelector("form");
 
-                break;
-/* - año (obligatorio, un año, que será siempre como máximo el año actual ) */                
-            case inputs[2]: // año
+    formulario.addEventListener("submit", event => {
+        event.preventDefault();
+        comprobarInput();
+    });
 
-                break;
-/* - sexo (obligatorio, H o M (solo se podrá seleccionar uno)) */
-            case inputs[3]: //sexo
+    /* EXPRESIONES REGULARES (ME AHORRO EL ESCRIBIR UNA FUNCION PARA CADA) */
+    const validarNombre = /[A-Z][a-z]+ +[A-Z][a-z]+ +[A-Z][a-z]+$/
+    const validarCorreo = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const validarSexo = /^[hH|Mm]$/;
+    const validarISBN = /^[\d]{3}[ |-][\d]{1}[ |-][\d]{5}[ |-][\d]{3}[ |-][\d]{1}$/
 
-                break;
-/* - ISBN (978-1-86197-876-9 | 978 1 86197 876 9) */
-            case inputs[4]: // ISBN
-
-                break;
-
+    function comprobarInput() {
+        let resultadoComprobacion = true;
+        for (let i = 0; i < inputs.length; i++) {
+            let valor = inputs[i].value;
+            resultadoComprobacion = validacionSegunIndice(valor, i);
+            insertarCampo(valor, resultadoComprobacion, i);
         }
     }
+    function insertarCampo(valor, bool, indice) {
+        let celda = celdasResultado[indice];
+        if (bool)
+            celda.innerHTML = valor;
+        else {
+            celda.innerHTML = "El " + celda.className + " no es correcto";
+            celda.style.color = "red";
+        }
+    }
+    function validacionSegunIndice(valor, indice) {
+        let bandera = false;
+        switch (indice) {
+            case 0:
+                bandera = validarNombre.test(valor);
+                break;
+            case 1:
+                bandera = validarCorreo.test(valor);
+                break;
+            case 2:
+                let añoIngresado = new Date(valor).getFullYear();
+                let añoActual = new Date().getFullYear();
+                bandera = !(añoIngresado > añoActual); /* lo ajusto para que tenga sentido con el resto de comprobaciones */
+                break;
+            case 3:
+                bandera = validarSexo.test(valor);
+                break;
+            case 4:
+                bandera = validarISBN.test(valor);
+                break;
+        }
+        return bandera;
+    }
 </script>
-<!--
-Validación de formulario con 5 campos. Se validará todo desde
-JavaScript. La validación se realizará desde JavaScript mediante el evento
-“change” asociado a cada campo.
-Los campos a introducir serán:
-En el evento change de cada campo se mostrarán los valores correctos en
-un tabla de 2 columnas que ya exista en el HTML (la tabla siempre está
-en pantalla, hacerla en HTML y desde JavaScript solo es necesario ir
-cambiando el contenido de la segunda columna). La primera columna
-guarda el nombre del campo y en la segunda el valor o el mensaje de
-error.
-
-Si algo es incorrecto, se debe escribir en esa tabla en color rojo desde
-JavaScript un mensaje de error. El mensaje de error se sustituirá por el
-valor correcto en color negro cuando cada campo vaya pasando la
-validación.
- -->

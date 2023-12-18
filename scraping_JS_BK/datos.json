@@ -1,19 +1,189 @@
 {
+  "juguetes": [
+    {
+      "nombre": "Juguetes 1Caja 19P7283C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-19p7283c/",
+      "precio": 109.54
+    },
+    {
+      "nombre": "Juguetes 1Caja 15Ó2398C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-15o2398c/",
+      "precio": 113.68
+    },
+    {
+      "nombre": "Juguetes 1Caja 16D3276C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-16d3276c/",
+      "precio": 130.62
+    },
+    {
+      "nombre": "Juguetes 1Caja 19P4785C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-19p4785c/",
+      "precio": 133.01
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G2613C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g2613c/",
+      "precio": 134.12
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G4754C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g4754c/",
+      "precio": 136.01
+    },
+    {
+      "nombre": "Juguetes 1Caja 19P7277C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-19p7277c/",
+      "precio": 141.11
+    },
+    {
+      "nombre": "Juguetes 1Caja 15Ó6509C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-15o6509c/",
+      "precio": 144.06
+    },
+    {
+      "nombre": "Juguetes 1Caja 15Ó7629C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-15o7629c/",
+      "precio": 151.76
+    },
+    {
+      "nombre": "Juguetes 1Caja 16D3275C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-16d3275c/",
+      "precio": 152.84
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G9581C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g9581c/",
+      "precio": 154
+    },
+    {
+      "nombre": "Juguetes 1Caja 16D7130C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-16d7130c/",
+      "precio": 155.97
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G5316C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g5316c/",
+      "precio": 169.15
+    },
+    {
+      "nombre": "Juguetes 1Caja 15Ó8744C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-15o8744c/",
+      "precio": 174.51
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G2190C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g2190c/",
+      "precio": 182.02
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G2180C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g2180c/",
+      "precio": 185.32
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G2615C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g2615c/",
+      "precio": 189.04
+    },
+    {
+      "nombre": "Juguetes 1Caja 16D3386C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-16d3386c/",
+      "precio": 192.25
+    },
+    {
+      "nombre": "Juguetes 1Caja 15Ó2353C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-15o2353c/",
+      "precio": 193.14
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G0632C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g0632c/",
+      "precio": 197.39
+    },
+    {
+      "nombre": "Juguetes 1Caja 18G9611C",
+      "enlace": "https://subastalotes.com/producto/juguetes-1caja-18g9611c/",
+      "precio": 199.22
+    },
+    {
+      "nombre": "Juguetes 1Palet 16W181",
+      "enlace": "https://subastalotes.com/producto/juguetes-1palet-16w181/",
+      "precio": 416.15
+    },
+    {
+      "nombre": "Juguetes 1Palet 16W694",
+      "enlace": "https://subastalotes.com/producto/juguetes-1palet-16w694/",
+      "precio": 445.58
+    },
+    {
+      "nombre": "Juguetes 1Palet 16W689",
+      "enlace": "https://subastalotes.com/producto/juguetes-1palet-16w689/",
+      "precio": 464.63
+    },
+    {
+      "nombre": "Juguetes 1Palet 16W766",
+      "enlace": "https://subastalotes.com/producto/juguetes-1palet-16w766/",
+      "precio": 510.11
+    },
+    {
+      "nombre": "Juguetes 1Palet 16W156",
+      "enlace": "https://subastalotes.com/producto/juguetes-1palet-16w156/",
+      "precio": 512.43
+    },
+    {
+      "nombre": "Juguetes 1Palet 16W971",
+      "enlace": "https://subastalotes.com/producto/juguetes-1palet-16w971/",
+      "precio": 588.21
+    }
+  ],
+  "bebé": [
+    {
+      "nombre": "Bebé y cuidado personal 1Palet 29A725",
+      "enlace": "https://subastalotes.com/producto/bebe-y-cuidado-personal-1palet-29a725/",
+      "precio": 513.42
+    }
+  ],
+  "herramientas": [
+    {
+      "nombre": "Herramientas 1Palet 30U140",
+      "enlace": "https://subastalotes.com/producto/herramientas-1palet-30u140/",
+      "precio": 599.12
+    },
+    {
+      "nombre": "Herramientas 1Palet 30U082",
+      "enlace": "https://subastalotes.com/producto/herramientas-1palet-30u082/",
+      "precio": 795.38
+    }
+  ],
+  "ropa": [
+    {
+      "nombre": "Ropa y deporte 1Palet 30Z147",
+      "enlace": "https://subastalotes.com/producto/ropa-y-deporte-1palet-30z147/",
+      "precio": 572.23
+    }
+  ],
+  "hogar": [
+    {
+      "nombre": "Hogar 1Caja 22K1463C",
+      "enlace": "https://subastalotes.com/producto/hogar-1caja-22k1463c/",
+      "precio": 114.34
+    },
+    {
+      "nombre": "Hogar 1Caja 22K1784C",
+      "enlace": "https://subastalotes.com/producto/hogar-1caja-22k1784c/",
+      "precio": 158.94
+    },
+    {
+      "nombre": "Hogar 1Palet 30X989",
+      "enlace": "https://subastalotes.com/producto/hogar-1palet-30x989/",
+      "precio": 236.03
+    }
+  ],
   "electrónica": [
     {
-      "nombre": "Electrónica 1Caja 28H0905C",
-      "enlace": "https://subastalotes.com/producto/electronica-1caja-28h0905c/",
-      "precio": 717.44
-    },
-    {
-      "nombre": "Electrónica 1Caja 28H0962C",
-      "enlace": "https://subastalotes.com/producto/electronica-1caja-28h0962c/",
-      "precio": 742.64
-    },
-    {
-      "nombre": "Electrónica 1Caja 30G6881C",
-      "enlace": "https://subastalotes.com/producto/electronica-1caja-30g6881c/",
-      "precio": 776.16
+      "nombre": "Electrónica 1Palet 31C595",
+      "enlace": "https://subastalotes.com/producto/electronica-1palet-31c595/",
+      "precio": 592.57
     }
   ]
 }
