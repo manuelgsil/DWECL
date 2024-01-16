@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
     input {
         display: table;
     }
+
     table {
         border: 1px solid black;
         position: relative;
         left: 50%;
     }
+
     td,
     tr {
         border: 1px solid black;
@@ -24,15 +28,25 @@
     <h1>Formulario onChange</h1>
     <form action="#">
         <label for="">Nombre completo:</label>
-        <input type="text" id="nombreCompleto" onchange="validarCampo(this.value, 0)">
+        <input type="text"
+               id="nombreCompleto"
+               onchange="validarCampo(this.value, 0)">
         <label for="">email</label>
-        <input type="email" id="email" onchange="validarCampo(this.value, 1)">
+        <input type="email"
+               id="email"
+               onchange="validarCampo(this.value, 1)">
         <label for="">Año</label>
-        <input type="date" id="fecha" onchange="validarCampo(this.value, 2)">
+        <input type="date"
+               id="fecha"
+               onchange="validarCampo(this.value, 2)">
         <label for="">Sexo</label>
-        <input type="text" id="sexo" onchange="validarCampo(this.value, 3)">
+        <input type="text"
+               id="sexo"
+               onchange="validarCampo(this.value, 3)">
         <label for="">ISBN</label>
-        <input type="text" id="isbn" onchange="validarCampo(this.value, 4)">
+        <input type="text"
+               id="isbn"
+               onchange="validarCampo(this.value, 4)">
         <button type="submit">Enviar</button>
     </form>
     <table>
@@ -71,8 +85,10 @@
         }
         function insertarCampo(resultado, esCorrecto, indice) {
             let celda = celdasResultado[indice];
-            if (esCorrecto)
+            if (esCorrecto) {
+                celda.style.color = "black";
                 celda.innerHTML = resultado;
+            }
             else {
                 celda.innerHTML = "El " + celda.className + " no es correcto";
                 celda.style.color = "red";
