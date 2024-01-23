@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ejercicios JS</h1>
+    </header>
+    <div class="flex-container">
+        
+        <div id="contenedor">
+            <div id="contenedor-suma">
+                <input type="number"
+                       placeholder="sumar"
+                       id="numero1">
+
+            </div>
+            <div id="contenedor-resta">
+                <input type="number"
+                       placeholder="restar"
+                       id="numero2">
+            </div>
+        </div>
+
+        <div class="enunciado">
+            Sumar y restar. Habrá 2 input type number. Un div contenedor y
+            dentro 2 divs: suma y resta. En cada click, se llegará al click del
+            contenedor y si se ha pulsado en suma, se suma y si se ha pulsado en
+            resta, se resta.
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    let divSumar = document.getElementById("contenedor-suma");
+    let divRestar = document.getElementById("contenedor-resta");
+    let output = document.createElement("output");
+    let contenedor= document.getElementById("contenedor");
+
+    divSumar.addEventListener("dblclick", () => {
+        output.innerHTML="";
+        let valorDivSumar = document.getElementById("numero1").value;
+        let valorDivRestar = document.getElementById("numero2").value;
+        let operacion = parseInt(valorDivSumar) + parseInt(valorDivRestar);
+        output.innerHTML = operacion;
+        contenedor.appendChild(output);
+    })
+
+    divRestar.addEventListener("click", () => {
+        output.innerHTML="";
+        let valorDivSumar = document.getElementById("numero1").value;
+        let valorDivRestar = document.getElementById("numero2").value;
+        let operacion = parseInt(valorDivSumar) + parseInt(valorDivRestar);
+        output.innerHTML = operacion;
+        contenedor.appendChild(output);
+    })
+
+</script>
+
+<!-- -->
