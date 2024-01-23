@@ -5,57 +5,58 @@ ha pulsado. -->
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2</title>
-    <link rel="stylesheet"
-          href="style.css">
+     <meta charset="UTF-8">
+     <meta name="viewport"
+           content="width=device-width, initial-scale=1.0">
+     <title>Ejercicio 2</title>
+     <link rel="stylesheet"
+           href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Ejercicios JS</h1>
-    </header>
-    <div class="flex-containerRow">
-        <div class="cuadrado"
-             style="background-color: aqua;"></div>
-        <div class="cuadrado"
-             style="background-color: yellow;"></div>
-        <div class="cuadrado"
-             style="background-color: green;"></div>
-        <div class="cuadrado"
-             style="background-color: brown;"></div>
-        <div class="cuadrado"
-             style="background-color: peru;"></div>
-        <div class="cuadrado"
-             style="background-color: tomato;"></div>
-        <div class="cuadrado"
-             style="background-color: lightcoral;"></div>
-        <div class="cuadrado"
-             style="background-color: gold;"></div>
-        <div class="cuadrado"
-             style="background-color: ghostwhite;"></div>
-        <div class="cuadrado"
-             style="background-color: seagreen;"></div>
-    </div>
+     <header>
+          <h1>Ejercicios JS</h1>
+     </header>
+     <div id="flex-containerRow">
+          <div class="cuadrado"
+               style="background-color: aqua;"></div>
+          <div class="cuadrado"
+               style="background-color: yellow;"></div>
+          <div class="cuadrado"
+               style="background-color: green;"></div>
+          <div class="cuadrado"
+               style="background-color: brown;"></div>
+          <div class="cuadrado"
+               style="background-color: peru;"></div>
+          <div class="cuadrado"
+               style="background-color: tomato;"></div>
+          <div class="cuadrado"
+               style="background-color: lightcoral;"></div>
+          <div class="cuadrado"
+               style="background-color: gold;"></div>
+          <div class="cuadrado"
+               style="background-color: ghostwhite;"></div>
+          <div class="cuadrado"
+               style="background-color: seagreen;"></div>
+     </div>
 
-    <div class="enunciado">
-        3.- Colores. Seis divs con width, height y un color de fondo. Al hacer
-        click sobre alguno de ellos se debe mostrar en el body el color del que se
-        ha pulsado.
-    </div>
-    </div>
+     <div class="enunciado">
+          3.- Colores. Seis divs con width, height y un color de fondo. Al hacer
+          click sobre alguno de ellos se debe mostrar en el body el color del que se
+          ha pulsado.
+     </div>
+     </div>
 
-    <script>
-        cuadrados = document.getElementsByClassName;
+     <script>
+          let cuadrados = document.getElementsByClassName("cuadrado");
 
-        for (let elemento of cuadrados) {
-            elemento.addEventListener("click", () => {
-                let colorCuadrado = elemento.style.backgroundColor;
-                document.body.style.backgroundColor = `${colorCuadrado}`;
-            })
-        };
+          for (let i = 0; i < cuadrados.length; i++) {
+               cuadrados[i].addEventListener("click", function () { // con arrow function cuidao, no funcionaba
+                    let estilos = window.getComputedStyle(this);
+                    let colorCuadrado = estilos.backgroundColor;
+                    document.body.style.backgroundColor = colorCuadrado;
+               })
+          }
 
-    </script>
+     </script>
 </body>

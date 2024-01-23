@@ -26,7 +26,7 @@ h1 {
 
 }
 
-.flex-container {
+#flex-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -34,7 +34,25 @@ h1 {
     align-items: center;
 }
 
-.flex-containerRow {
+#flex-containerRow>div {
+
+    border: 1px black solid;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 3rem;
+    transition: 500ms;
+    background-color: cadetblue;
+    font-size: 20px;
+    color: white;
+}
+
+#flex-containerRow>div:hover {
+    box-shadow: 5px 10px 10px rgb(59, 89, 90);
+    cursor: pointer;
+}
+
+#flex-containerRow {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -51,6 +69,7 @@ h1 {
     line-height: 2rem;
     text-wrap: pretty;
     outline: 1px black solid;
+    background-color: #FFFF;
 }
 
 form {
@@ -96,7 +115,7 @@ form {
         padding-top: 25px;
     }
 
-    & #contenedor-resta{
+    & #contenedor-resta {
         outline: 3px solid green;
     }
 
@@ -107,7 +126,7 @@ form {
     }
 }
 
-.cuadrado{
+.cuadrado {
     width: 150px;
     height: 150px;
     border: 1px black solid;
