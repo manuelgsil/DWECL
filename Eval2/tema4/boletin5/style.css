@@ -1,0 +1,133 @@
+:root {
+    --letraEncabezado: fantasy;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 100dvh;
+}
+
+h1 {
+    font-family: var(--letraEncabezado);
+    letter-spacing: 5px;
+    padding: 10px;
+    margin: 10px 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid;
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgb(225, 225, 20);
+
+}
+
+#flex-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+#flex-containerRow>div {
+
+    border: 1px black solid;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 3rem;
+    transition: 500ms;
+    background-color: cadetblue;
+    font-size: 20px;
+    color: white;
+}
+
+#flex-containerRow>div:hover {
+    box-shadow: 5px 10px 10px rgb(59, 89, 90);
+    cursor: pointer;
+}
+
+#flex-containerRow {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.enunciado {
+    margin: 50px auto;
+    width: 50%;
+    height: 33%;
+    padding: 20px;
+    line-height: 2rem;
+    text-wrap: pretty;
+    outline: 1px black solid;
+    background-color: #FFFF;
+}
+
+form {
+    background-color: #0333;
+    justify-content: center;
+    height: 33%;
+    width: 33%;
+    border: 1px gray solid;
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px black;
+
+    & label {
+        margin: 5px;
+    }
+
+    & button {
+        border: 1px black solid;
+        padding: 5px;
+    }
+}
+
+#contenedor {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    padding: 30px;
+    background-color: #0333;
+    box-shadow: 0px 5px 10px black;
+
+
+    & #contenedor-suma,
+    #contenedor-resta {
+        outline: 3px solid red;
+        height: 50%;
+        text-align: center;
+        padding-top: 25px;
+    }
+
+    & #contenedor-resta {
+        outline: 3px solid green;
+    }
+
+    & input {
+        text-align: center;
+
+        width: 60%;
+    }
+}
+
+.cuadrado {
+    width: 150px;
+    height: 150px;
+    border: 1px black solid;
+}
