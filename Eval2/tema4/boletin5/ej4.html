@@ -38,10 +38,14 @@
 
     <script>
         let contenedorPadre = document.getElementById("flex-containerRow");
-
-        contenedorPadre.addEventListener("mouseenter", function () {
-            alert("hola");
-        })
+        contenedorPadre.addEventListener("click", (e) => {
+            let esHijo = e.target !== contenedorPadre;
+            if (esHijo) {
+                let contenido = e.target.textContent;
+                let nuevaVentana = window.open("", "NuevaVentana", "width=200,height=100");
+                nuevaVentana.document.write(`<p>Número pulsado: ${contenido}</p>`);
+            }
+        });
 
     </script>
 </body>
