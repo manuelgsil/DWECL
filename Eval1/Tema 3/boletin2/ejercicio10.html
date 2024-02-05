@@ -3,18 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
-    <P>Estoy reventadisimo</P>
-    <P>Me gusta muchisimo la curcuma</P>
-    <P>Me podré tomar una cerveza hoy? yes we can</P>
-    <P>CANTA OH DIOSA LA COLERA DEL PELIDA AQUILES</P>
+    <P>Soy un parrafo</P>
+    <P>curcuma</P>
+    <P> yes we can</P>
+    <P>parrafo 4</P>
 
     <label for="textoBuscado">Introduzca una palabra a buscar </label>
-    <input type="text" name="textoBuscado" id="textoBuscado">
+    <input type="text"
+           name="textoBuscado"
+           id="textoBuscado">
     <button onclick="busqueda()">BUSCAR</button>
 </body>
 
@@ -30,7 +33,9 @@
             let textoParrafo = parrafo.textContent;
             if (textoParrafo.includes(stringBuscado)) {
                 tamanioCadena = stringBuscado.length;
-                parrafo.innerHTML = textoParrafo.replace(stringBuscado, "<strong> NO </strong>") + `</br> <span> Tamaño de la cadena: ${tamanioCadena}</span>`;
+                parrafo.innerHTML = textoParrafo.replace(stringBuscado,
+                    "<strong> NO </strong>")
+                    + `</br> <span> Tamaño de la cadena: ${tamanioCadena}</span>`;
                 estaPresente = true;
             }
         });

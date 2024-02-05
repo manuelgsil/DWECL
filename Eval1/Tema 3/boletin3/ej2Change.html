@@ -79,10 +79,12 @@
         const validarISBN = /^[\d]{3}[ |-][\d]{1}[ |-][\d]{5}[ |-][\d]{3}[ |-][\d]{1}$/;
         /* Fila de celdas donde va el resultado de los inputs */
         let celdasResultado = document.querySelectorAll("table tr td:nth-child(2)");
+        
         function validarCampo(valor, indice) {
             let esCorrecto = validacionSegunIndice(valor, indice);
             insertarCampo(valor, esCorrecto, indice);
         }
+        
         function insertarCampo(resultado, esCorrecto, indice) {
             let celda = celdasResultado[indice];
             if (esCorrecto) {

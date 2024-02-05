@@ -4,9 +4,13 @@ localStorage.setItem("password", "123");
 
 function login() {
     let nombreUsuario = document.getElementById("usuario").value;
+    
     sessionStorage.setItem("usuarioSesion", nombreUsuario);
+
     let contraseñaUsuario = document.getElementById("contraseña").value;
+    
     let contraseña_correcta = contraseñaUsuario == localStorage.getItem("password");
+    
     if (contraseña_correcta) {
         let numeroRandom = Math.ceil(Math.random() * 10);
         sessionStorage.setItem("ID_SESSION", numeroRandom);
