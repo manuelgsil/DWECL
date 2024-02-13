@@ -22,3 +22,4 @@ function validarContraseña() {
     let esValida = regContraseña.test(contraseña) && contraseña === rContraseña;
     return esValida;
 }
+
