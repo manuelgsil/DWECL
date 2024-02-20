@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100dvh;
+    padding: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 20% 80%;
+    grid-template-areas:
+        "header header"
+        "viajes calculadora";
+    min-height: 100dvh;
+
+}
+
+header {
+    grid-area: header;
+    background-color: lightsteelblue;
+    text-align: center;
+}
+
+.viajes {
+    grid-area: viajes;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1rem;
+    justify-content: space-evenly;
+    gap: 1rem;
+    overflow-y: scroll;
+
+}
+
+.destinos {
+    min-height: 300px;
+    max-height: 400px;
+    min-width: 320px;
+    max-width: 350px;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow ease 0.5s;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    font-family: fantasy;
+    gap: 1rem;
+    background-size: cover;
+    border: 5px #f0f0f0 solid;
+
+    &:hover {
+        box-shadow: 8px 8px 8px grey;
+        
+    }
+
+    & table,
+    td,
+    tr {
+        font-weight: 800;
+        text-shadow: black 8px 8px 8px;
+        padding: 1rem;
+        text-align: center;
+        font-size: 16px;
+        transition: scale 0.5s ease;
+    }
+
+    & tr:hover {
+        scale: 1.2;
+        color: yellow;
+    }
+
+    & button {
+        border-radius: 2rem;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    & h1 {
+        letter-spacing: 2px;
+        font-size: 22px;
+        transition: scale 0.5s ease;
+
+        &:hover {
+            scale: 1.2;
+            color: yellow;
+        }
+    }
+}
+
+&:hover {
+    box-shadow: 1rem 1rem 1rem darkgrey;
+}
+
+
+.calculadora {
+    grid-area: calculadora;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    gap: 1rem;
+}
+
+.contenedor-calculadora-dias,
+.contenedor-calculadora-total {
+    border-radius: 2rem;
+    padding: 1rem;
+    outline: 1px black solid;
+    width: 350px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.contenedor-calculadora-viajesAñadidos {
+    display: flex;
+}

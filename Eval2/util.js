@@ -197,7 +197,7 @@ function crearTabla() {
 // Función manejadora para clics en la lista
 function handleClick(event) {
   // Verificar si el clic fue en un elemento <li>
-  if (event.target.tagName === 'LI') {
+  if (event.target.createcr === 'LI') {
     // Mostrar el texto del elemento clicado
     console.log('Clic en: ' + event.target.textContent);
   }
