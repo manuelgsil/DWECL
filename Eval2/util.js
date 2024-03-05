@@ -247,3 +247,24 @@ console.log(eventos);
 
 getEventListeners(document.getElementById('miBoton'));
 
+
+// FUNCIONES DE FILTRADO DE ARRAY
+/* 
+let data = [1,2,6,1,2,5,9,'33','33'];
+
+const result = data.reduce((acc,item)=>{
+  if(!acc.includes(item)){
+    acc.push(item);
+  }
+  return acc;
+},[])
+
+console.log(result);  */
+
+/* 
+let data = [1,2,6,1,2,5,9,'33','33'];
+
+let result = data.filter((item,index)=>{
+  return data.indexOf(item) === index;
+})
+console.log(result); //[1,2,6,5,9,'33'] */
