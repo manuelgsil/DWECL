@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chistes</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <p>Chuck Palace</p>
+    </header>
+    <main>
+      <div class="cuerpo random">
+        <input type="radio" name="rOpcion" id="rRandom" />
+        <p>Random</p>
+        <div class="output random" id="oRandom">Aqui saldra el chiste</div>
+      </div>
+      <div class="cuerpo categoria">
+        <input type="radio" name="rOpcion" id="rCategoria" />
+        <div class="mb-3">
+          <label for="categorias" class="form-label">Categoria</label>
+          <select name="categorias" id="categorias">
+            <option selected>Selecciona una</option>
+          </select>
+        </div>
+
+        <div class="output random" id="oCategoria">Aqui saldra el chiste</div>
+      </div>
+      <div class="cuerpo buscador">
+        <input type="radio" name="rOpcion" id="rBuscador" />
+        <input type="text" id="tBuscado" placeholder="  introduce el texto a buscar" />
+        <div class="output buscador" id="oBuscador">Aqui saldra el chiste</div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<!-- Vamos a realizar una web que sirva para acceder a los datos que aloja la API
+https://api.chucknorris.io/. Para ello deberás:
+a. Ofrecer la posibilidad de obtener una respuesta aleatoria.
+b. Ofrecer la posibilidad de obtener una respuesta filtrando por las categorías
+disponibles.
+c. Ofrecer la posibilidad de escribir un texto y obtener una respuesta en base a
+él.
+Las peticiones no deben bloquear la página, es decir, si hago una petición de una
+categoría concreta, mientras me llega la respuesta y la muestro, la página me debe
+permitir escribir la palabra/s clave que quiero para mi siguiente petición.
+ -->

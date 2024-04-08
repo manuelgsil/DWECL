@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  min-height: 90dvh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-items: center;
+}
+main > * {
+  padding: 10px;
+  margin: 10px;
+  flex: 1 100%;
+}
+header {
+  background-color: rgb(246, 70, 12);
+  height: 100px;
+  text-align: center;
+  margin: 1rem;
+  & p {
+    display: block;
+    font-size: 30px;
+    color: white;
+    justify-content: center;
+    padding-top: 1.5rem;
+  }
+}
+.cuerpo {
+  height: 15rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem;
+  border-bottom: 1px black solid;
+  align-items: center;
+}
+
+.output {
+  border: dashed 1px wheat;
+  padding: 1rem;
+}
+
+input[type="text"] {
+  width: 80%;
+  height: 25%;
+}
+input[type="radio"] {
+  width: 100%;
+  margin: auto 0;
+}
