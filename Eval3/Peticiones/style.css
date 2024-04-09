@@ -1,0 +1,16 @@
+.card-body{
+    border-bottom: 0.2rem solid black;
+    padding: 1rem;
+}
+h5{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+p{
+    padding: 0.5rem;
+}
+.container {
+    background-color: #f3f3f3;
+}
+body{
+    background-color: antiquewhite;
+}
