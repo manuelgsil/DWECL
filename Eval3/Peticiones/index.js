@@ -1,6 +1,8 @@
 /* URLS */
-const URL_USUARIOS = "https://jsonplaceholder.typicode.com/posts";
+const URL_USUARIOS = "https://jsonplaceholder.typicode.com/users";
+const URL_POST = "https://jsonplaceholder.typicode.com/posts";
 const URL_COMENTARIOS = "https://jsonplaceholder.typicode.com/posts/1/comments";
+const URL_MODIFICAR = "https://jsonplaceholder.typicode.com/posts/1";
 
 /* PARTES DEL HTML */
 const containerComentarios = document.createElement("div");
@@ -52,16 +54,16 @@ function peticion(url, callback) {
 function filtarUsuarios(arr) {
   let set = new Set();
   arr.forEach((usuario) => {
-    set.add(usuario.userId);
+    set.add(usuario);
   });
   return set;
 }
 
 function addOpcionesSelect(set) {
-  set.forEach((id) => {
+  set.forEach((element) => {
     let DomOpcion = document.createElement("option");
-    DomOpcion.setAttribute("value", id);
-    DomOpcion.textContent = id;
+    DomOpcion.setAttribute("value", element.id);
+    DomOpcion.textContent = element.name;
     select.appendChild(DomOpcion);
     document.body.appendChild(select);
   });
@@ -69,7 +71,6 @@ function addOpcionesSelect(set) {
 
 function mostrar() {
   containerComentarios.innerHTML = "";
-
   let idUsuario = select.options[select.selectedIndex].value;
   listarPublicaciones(idUsuario, (publicaciones) => {
     crearHTMLpublicacion(publicaciones);
@@ -77,7 +78,7 @@ function mostrar() {
 }
 
 function listarPublicaciones(idUser, callback) {
-  peticion(URL_USUARIOS, (usuarios) => {
+  peticion(URL_POST, (usuarios) => {
     let arrUsuario = usuarios.filter((item) => item.userId == idUser);
     callback(arrUsuario);
   });
@@ -92,7 +93,6 @@ function crearHTMLpublicacion(publicaciones) {
 
     let cardDiv = document.createElement("div");
     cardDiv.className = "card";
-    cardDiv.setAttribute("id", publicacion.id);
 
     let cardBodyDiv = document.createElement("div");
 
@@ -107,18 +107,44 @@ function crearHTMLpublicacion(publicaciones) {
     contenido.className = "card-text";
     contenido.textContent = publicacion.body;
 
+    const botonModificar = document.createElement("button");
+    botonModificar.textContent = "Modificar";
+    botonModificar.classList.add("btn", "btn-primary", "p-1", "btn-sm", "m-1");
+    botonModificar.setAttribute("id", publicacion.id);
+    botonModificar.addEventListener("click", modificarPost);
+
+    const botonComentarios = document.createElement("button");
+    botonComentarios.textContent = "Comentarios";
+    botonComentarios.setAttribute("id", publicacion.id);
+    botonComentarios.classList.add("btn", "btn-info", "p-1", "btn-sm", "m-1");
+    botonComentarios.addEventListener("click", mostrarInfo);
+
     cardBodyDiv.appendChild(titulo);
     cardBodyDiv.appendChild(idUser);
     cardBodyDiv.appendChild(contenido);
-
+    cardBodyDiv.appendChild(botonModificar);
+    cardBodyDiv.appendChild(botonComentarios);
     cardDiv.appendChild(cardBodyDiv);
-    cardDiv.addEventListener("click", mostrarInfo);
+
     colDiv.appendChild(cardDiv);
 
     document.getElementById("publicacionesContainer").appendChild(colDiv);
   });
 }
-
+formularioModificacion()
+function formularioModificacion() {
+  let formulario = document.createElement("form")
+  formulario.classList.add("form-control");
+  let inputUserId = document.createElement("input");
+  let inputPostId = document.createElement("input");
+  let inputTitle = document.createElement("input");
+  let inputBody = document.createElement("input");
+  formulario.appendChild(inputUserId);
+  formulario.appendChild(inputPostId);
+  formulario.appendChild(inputTitle);
+  formulario.appendChild(inputBody);
+  document.body.appendChild(formulario);
+}
 function mostrarInfo(e) {
   let idPublicacion = e.currentTarget.id;
   peticionComentarios(URL_COMENTARIOS, idPublicacion, (callback) => {
@@ -134,7 +160,11 @@ function mostrarComentarios(comentarios) {
 
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
+    cardBody.dataset.postId = comentario.postId;
 
+    /* Introducimos el addEventListener */
+    /*     cardBody.addEventListener("click", modificar);
+     */
     const header = document.createElement("h5");
     header.classList.add("card-title");
     header.textContent = comentario.name;
@@ -170,4 +200,42 @@ function peticionComentarios(url, idComentario, callback) {
   };
 }
 
-function editarComentario() {}
+function modificarPost(e) {
+  let idPost = e.currentTarget.id;
+  peticionPUT(URL_MODIFICAR, idPost)
+}
+
+function peticionPUT(url, postId) {
+  const formulario = document.querySelector("form");
+  const body = JSON.stringify({
+    userId: formulario[0].value,
+    id: formulario[1].value,
+    title: formulario[2].value,
+    body: formulario[3].value,
+  })
+
+  let urlComentario = url.replace("1", postId);
+
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("PUT", urlComentario);
+  xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+  xhr.send(body);
+
+  xhr.onload = () => {
+    if (xhr.status == "200") {
+      console.log(JSON.parse(xhr.responseText));
+    }
+  };
+
+}
+
+function crearComentario() {
+  const boton = document.createElement("button");
+  boton.textContent = "Modificar";
+
+}
+/* d. Se ofrezca al usuario la posibilidad de editar, tanto los post como los
+comentarios. Una vez editados, se mostrará el elemento modificado en cada
+caso.
+ */
